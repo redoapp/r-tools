@@ -1,3 +1,5 @@
+cd "$BUILD_WORKSPACE_DIRECTORY"
+
 git ls-files |
     git check-attr --stdin linguist-generated |
     grep -v ' set$' |

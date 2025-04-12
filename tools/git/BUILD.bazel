@@ -1,24 +1,21 @@
-load("@rules_shell_extra//shell:rules.bzl", "sh_binary")
+package(default_visibility = ["//visibility:public"])
 
-sh_binary(
+alias(
     name = "files",
-    main = "files.sh",
+    actual = "//git:files",
 )
 
-sh_binary(
+alias(
     name = "lines",
-    data = [":files"],
-    main = "lines.sh",
+    actual = "//git:lines",
 )
 
-sh_binary(
+alias(
     name = "refs_cleanup",
-    data = [":files"],
-    main = "refs-cleanup.sh",
+    actual = "//git:refs_cleanup",
 )
 
-sh_binary(
-    name = "refs_local_cleanup",
-    data = [":files"],
-    main = "refs-local-cleanup.sh",
+alias(
+    name = "refs_remote_cleanup",
+    actual = "//git:refs_remote_cleanup",
 )
