@@ -39,7 +39,7 @@ cf_function = rule(
 def _lambda_nodejs_transition_impl(settings, attrs):
     return {
         "//command_line_option:compilation_mode": "opt",
-        "//command_line_option:platforms": "//tools/platform:lambda",
+        "//command_line_option:platforms": "//aws/rules:lambda",
     }
 
 # Could exclude AWS libraries with @better_rules_javascript//javascript:system_lib
