@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "prettier-plugin-sort-json": "^4"
+  },
+  "private": true
+}

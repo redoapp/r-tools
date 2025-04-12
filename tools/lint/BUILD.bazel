@@ -1,0 +1,56 @@
+load("@rules_file//generate:rules.bzl", "format", "formatter_composite", "generate_test", "multi_generate")
+
+package(default_visibility = ["//visibility:public"])
+
+format(
+    name = "bazel_lint",
+    srcs = ["@files//:bazel_files"],
+    formatter = "//tools/buildifier",
+    strip_prefix = "/files",
+)
+
+format(
+    name = "black_lint",
+    srcs = ["@files//:black_files"],
+    formatter = "//tools/black",
+    strip_prefix = "/files",
+)
+
+format(
+    name = "prettier_lint",
+    srcs = ["@files//:prettier_files"],
+    formatter = "//tools/prettier",
+    strip_prefix = "/files",
+)
+
+multi_generate(
+    name = "lint",
+    deps = [
+        ":bazel_lint",
+        ":black_lint",
+        ":prettier_lint",
+        ":shfmt_exec_lint",
+        ":shfmt_lint",
+    ],
+)
+
+generate_test(
+    name = "lint_test",
+    generate = ":lint",
+    tags = ["lint"],
+)
+
+format(
+    name = "shfmt_exec_lint",
+    srcs = ["@files//:shfmt_exec_files"],
+    file_mode = "0755",
+    formatter = "//tools/shfmt",
+    strip_prefix = "/files",
+)
+
+format(
+    name = "shfmt_lint",
+    srcs = ["@files//:shfmt_files"],
+    formatter = "//tools/shfmt",
+    strip_prefix = "/files",
+)

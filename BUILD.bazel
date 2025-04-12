@@ -1,0 +1,43 @@
+load("@better_rules_javascript//commonjs:rules.bzl", "cjs_root")
+load("@better_rules_javascript//javascript:rules.bzl", "js_library")
+
+package(default_visibility = ["//visibility:public"])
+
+exports_files([
+    "package.json",
+    "yarn.lock",
+])
+
+alias(
+    name = "lint",
+    actual = "//tools/lint",
+)
+
+test_suite(
+    name = "npm_audit",
+    tests = ["//tools/npm:audit"],
+)
+
+alias(
+    name = "npm_resolve",
+    actual = "//tools/npm:resolve",
+)
+
+alias(
+    name = "refresh",
+    actual = "//tools/bazel:refresh",
+)
+
+cjs_root(
+    name = "root",
+    package_name = "@redotech/_root",
+)
+
+js_library(
+    name = "prettier_config",
+    srcs = [".prettierrc.yaml"],
+    root = ":root",
+    deps = [
+        "@npm//prettier-plugin-sort-json:lib",
+    ],
+)

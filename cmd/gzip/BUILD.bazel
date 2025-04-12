@@ -1,0 +1,25 @@
+load(":rules.bzl", "gzip_toolchain_binary")
+
+package(default_visibility = ["//visibility:public"])
+
+gzip_toolchain_binary(
+    name = "bin",
+)
+
+toolchain_type(name = "toolchain")
+
+toolchain(
+    name = "gzip_toolchain",
+    exec_compatible_with = ["@host_gzip//:exists"],
+    target_compatible_with = ["@host_gzip//:exists"],
+    toolchain = "@host_gzip//:executable_toolchain",
+    toolchain_type = ":toolchain",
+)
+
+toolchain(
+    name = "pigz_toolchain",
+    exec_compatible_with = ["@host_pigz//:exists"],
+    target_compatible_with = ["@host_pigz//:exists"],
+    toolchain = "@host_pigz//:executable_toolchain",
+    toolchain_type = ":toolchain",
+)

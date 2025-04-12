@@ -1,0 +1,36 @@
+package(default_visibility = ["//visibility:public"])
+
+filegroup(
+    name = "bazel_files",
+    srcs = glob(["files/**/*.bazel", "files/**/*.bzl"]),
+)
+
+filegroup(
+    name = "black_files",
+    srcs = glob(["files/**/*.py"]),
+)
+
+filegroup(
+    name = "prettier_files",
+    srcs = glob(
+        [
+            "files/**/*.md",
+            "files/**/.*.yaml",
+            "files/**/*.yaml",
+        ],
+    ),
+)
+
+filegroup(
+    name = "shfmt_exec_files",
+    srcs = glob(["files/.github/**/*"], exclude = [
+        "files/**/.*",
+        "files/**/*.*",
+        "files/**/CODEOWNERS",
+    ]),
+)
+
+filegroup(
+    name = "shfmt_files",
+    srcs = glob(["files/**/*.sh"]),
+)

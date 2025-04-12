@@ -1,0 +1,2 @@
+plugins: [prettier-plugin-sort-json]
+proseWrap: always

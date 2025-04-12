@@ -1,0 +1,33 @@
+*.3gp linguist-vendored
+*.graphql linguist-generated
+*.graphql.* linguist-generated
+*.jpg linguist-vendored
+*.mp4 linguist-vendored
+*.otf linguist-vendored
+*.pdf linguist-vendored
+*.png linguist-vendored
+*.openapi.* linguist-vendored
+*.schema.d.ts linguist-generated
+*.svg linguist-vendored
+*.ttf linguist-vendored
+*.woff linguist-vendored
+**/lottie/**/*.json linguist-vendored
+*.webm linguist-vendored
+
+apt.lock.json linguist-generated
+Cargo.bazel.lock linguist-generated
+npm.bzl linguist-generated
+openapi.* linguist-vendored
+shipbob-api.d.ts linguist-generated
+yarn.lock linguist-generated
+
+/redo/model/src/team-industry-category/team-industry-category.ts linguist-generated
+/redo/shop-mini/src/redotech/**/* linguist-generated
+/redotech/live/lib/employees.csv linguist-vendored
+/tools/bazel_/deleted.bazelrc linguist-generated
+/tools/nodejs/roots.bzl linguist-generated
+/tools/test/e2e_tests.bzl linguist-generated
+/tools/test/external_tests.bzl linguist-generated
+/tools/test/it_tests.bzl linguist-generated
+/tools/test/unit_tests.bzl linguist-generated
+/tools/typescript/libs.bzl linguist-generated

@@ -1,0 +1,24 @@
+load(":rules.bzl", "status")
+
+package(default_visibility = ["//visibility:public"])
+
+exports_files([
+    "command-runner.sh.tpl",
+    "query-targets.sh.tpl",
+    "pre-run-runner.sh.tpl",
+])
+
+status(
+    name = "build_embed_label",
+    key = "BUILD_EMBED_LABEL",
+)
+
+config_setting(
+    name = "stamp",
+    values = {"stamp": "1"},
+)
+
+status(
+    name = "timestamp",
+    key = "TIMESTAMP",
+)

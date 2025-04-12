@@ -1,0 +1,76 @@
+# Startup
+startup --host_jvm_args=-Xms512m
+startup --host_jvm_args=-Xmx2560m
+startup --windows_enable_symlinks
+
+# Files
+import %workspace%/tools/bazel/deleted.bazelrc
+
+# Config
+common --enable_platform_specific_config
+
+# Console
+common:ci --show_progress_rate_limit=3
+
+# Bzlmod
+common --noenable_bzlmod
+
+# Tags
+common --incompatible_allow_tags_propagation
+
+# Cache
+common --disk_cache ~/.cache/bazel-disk
+build --noexperimental_check_external_repository_files
+fetch --noexperimental_check_external_repository_files
+query --noexperimental_check_external_repository_files
+build --noexperimental_check_output_files
+build:ci --remote_cache https://redo-cache.ci.getredo.com/bazel/
+build:ci --remote_download_minimal
+test:ci --remote_download_regex=.*/test.xml
+
+# Profile
+build --nogenerate_json_trace_profile
+build:ci --generate_json_trace_profile
+
+# Build
+build -k
+build --experimental_guard_against_concurrent_changes
+# https://stackoverflow.com/a/78956791
+build --noincompatible_enable_cc_toolchain_resolution
+
+# Runfiles
+build:ci --nobuild_runfile_links
+build --enable_runfiles
+build --nolegacy_external_runfiles
+
+# Validations
+build --norun_validations
+
+# Sandbox
+build --noincompatible_strict_action_env
+build --reuse_sandbox_directories
+build --nosandbox_default_allow_network
+
+# Run
+# https://github.com/bazelbuild/bazel/issues/3325
+build --run_under=//tools/bazel:run
+
+# Test
+test --build_tests_only
+build --incompatible_exclusive_test_sandboxed
+build:ci --test_env=TEST_RETRIES=1
+build --test_output=errors
+build --nozip_undeclared_test_outputs
+
+# Python
+build --noexperimental_python_import_all_repositories
+build --incompatible_default_to_explicit_init_py
+
+# Visibility
+# build --incompatible_check_visibility_for_toolchains
+
+# User settings
+try-import %workspace%/user.bazelrc
+
+# Test cache configuration
+build:test_nocache --nocache_test_results

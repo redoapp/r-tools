@@ -1,0 +1,30 @@
+load("@better_rules_javascript//commonjs:rules.bzl", "cjs_root")
+load("@better_rules_javascript//javascript:rules.bzl", "js_library")
+load("@better_rules_javascript//nodejs:rules.bzl", "nodejs_binary")
+load("@better_rules_javascript//npm:rules.bzl", "yarn_audit_test", "yarn_resolve")
+
+package(default_visibility = ["//visibility:public"])
+
+cjs_root(
+    name = "root",
+    package_name = "@redotech/tools-npm",
+)
+
+yarn_audit_test(
+    name = "audit",
+    data = [
+        "//:package.json",
+        "//:yarn.lock",
+    ],
+    path = "/r_tools",
+    tags = [
+        "no-cache",
+        "no-sandbox",
+    ],
+)
+
+yarn_resolve(
+    name = "resolve",
+    output = "npm.bzl",
+    path = "/",
+)
