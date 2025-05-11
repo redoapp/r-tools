@@ -5,6 +5,28 @@ load("@rivet_bazel_util//bazel:providers.bzl", "create_digest")
 load("@rules_file//util:path.bzl", "runfile_path")
 load(":transitions.bzl", "mode_transition")
 
+def _build_setting_file_impl(ctx):
+    actions = ctx.actions
+    content_build_info = ctx.attr.content[BuildSettingInfo]
+    output = ctx.outputs.out
+
+    actions.write(
+        content = content_build_info.value,
+        output = output,
+    )
+
+    default_info = DefaultInfo(files = depset([output]))
+
+    return [default_info]
+
+build_setting_file = rule(
+    attrs = {
+        "content": attr.label(providers = [BuildSettingInfo]),
+        "out": attr.output(mandatory = True),
+    },
+    implementation = _build_setting_file_impl,
+)
+
 def _command_impl(ctx):
     actions = ctx.actions
     args = ctx.attr.args
