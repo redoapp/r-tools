@@ -118,6 +118,8 @@ executable_toolchain = rule(
 def _mode_target_impl(ctx):
     actions = ctx.actions
     dep_default = ctx.attr.dep[0][DefaultInfo]
+    dep_output_group = ctx.attr.dep[0][OutputGroupInfo] if OutputGroupInfo in ctx.attr.dep[0] else None
+    dep_toolchain = ctx.attr.dep[0][platform_common.ToolchainInfo] if platform_common.ToolchainInfo in ctx.attr.dep[0] else None
     name = ctx.attr.name
 
     if dep_default.files_to_run.executable:
@@ -137,7 +139,21 @@ def _mode_target_impl(ctx):
     else:
         default_info = dep_default
 
-    return [default_info]
+    return [default_info] + ([dep_output_group] if dep_output_group else []) + ([dep_toolchain] if dep_toolchain else [])
+
+mode_bin = rule(
+    attrs = {
+        "dep": attr.label(cfg = mode_transition, doc = "Dependency", mandatory = True),
+        "compilation_mode": attr.string(doc = "--compilation_mode, or empty to use existing value"),
+        "platforms": attr.string(doc = "--platforms, or empty to use existing value"),
+        "stamp": attr.int(default = -1, doc = "--stamp, or -1 to use existing value"),
+        "_allowlist_function_transition": attr.label(
+            default = "@bazel_tools//tools/allowlists/function_transition_allowlist",
+        ),
+    },
+    executable = True,
+    implementation = _mode_target_impl,
+)
 
 mode_target = rule(
     attrs = {
