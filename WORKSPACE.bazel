@@ -59,11 +59,11 @@ shfmt_toolchains()
 
 # Rules Python
 
-RULES_PYTHON_VERSION = "0.31.0"
+RULES_PYTHON_VERSION = "1.3.0"
 
 http_archive(
     name = "rules_python",
-    sha256 = "c68bdc4fbec25de5b5493b8819cfc877c4ea299c0dcb15c244c5a00208cde311",
+    sha256 = "2cc26bbd53854ceb76dd42a834b1002cd4ba7f8df35440cf03482e045affc244",
     strip_prefix = "rules_python-%s" % RULES_PYTHON_VERSION,
     url = "https://github.com/bazelbuild/rules_python/releases/download/%s/rules_python-%s.tar.gz" % (RULES_PYTHON_VERSION, RULES_PYTHON_VERSION),
 )
@@ -79,11 +79,11 @@ python_register_toolchains(
 
 # Rules File
 
-RULES_FILE_VERSION = "5ac5bc76c08501008acc3a3b9366a35c184ad20d"
+RULES_FILE_VERSION = "91265992ffbdc44748763bb765b88b98d466b3fa"
 
 http_archive(
     name = "rules_file",
-    sha256 = "b3b6d30eac24ca0786e1e0ef21b9b007edc170cc6b82b723ad852db03c43d489",
+    sha256 = "12680251fb30918524a9a951d4b62f26009e1d4dc27e83f136512e684dfc1f2c",
     strip_prefix = "rules_file-%s" % RULES_FILE_VERSION,
     url = "https://github.com/redoapp/rules_file/archive/%s.zip" % RULES_FILE_VERSION,
 )

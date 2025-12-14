@@ -1,0 +1,10 @@
+author: Redo Tech
+description: Describe input values
+inputs:
+  summary:
+    default: "true"
+    description: Write a step summary
+name: Workflow Inputs
+runs:
+  main: dist/main.js
+  using: node24

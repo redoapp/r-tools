@@ -27,7 +27,7 @@ filegroup(
         "files/**/.*",
         "files/**/*.*",
         "files/**/CODEOWNERS",
-    ]),
+    ], allow_empty = True),
 )
 
 filegroup(
