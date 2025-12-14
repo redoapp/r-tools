@@ -13,6 +13,8 @@ sh_binary(
     name = "refresh",
     data = [
         ":bazelrc",
+        "//github/workflow-inputs:gen",
+        "//tools/nodejs:roots",
     ],
     main = "refresh.sh",
 )

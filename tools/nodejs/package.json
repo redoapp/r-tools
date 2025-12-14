@@ -1,0 +1,7 @@
+{
+  "name": "@redotech/tools-nodejs",
+  "private": true,
+  "sideEffects": [
+    "*.css"
+  ]
+}

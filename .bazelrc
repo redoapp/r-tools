@@ -13,6 +13,7 @@ common --enable_platform_specific_config
 common:ci --show_progress_rate_limit=3
 
 # Bzlmod
+common --enable_workspace
 common --noenable_bzlmod
 
 # Tags
@@ -34,7 +35,7 @@ build:ci --generate_json_trace_profile
 
 # Build
 build -k
-build --experimental_guard_against_concurrent_changes
+build --guard_against_concurrent_changes
 # https://stackoverflow.com/a/78956791
 build --noincompatible_enable_cc_toolchain_resolution
 

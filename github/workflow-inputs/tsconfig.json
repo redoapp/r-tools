@@ -1,0 +1,4 @@
+{
+  "extends": "@redotech/tools-typescript/tsconfig.common.json",
+  "compilerOptions": { "skipLibCheck": true }
+}

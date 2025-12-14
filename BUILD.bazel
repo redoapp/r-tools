@@ -13,6 +13,11 @@ alias(
     actual = "//tools/lint",
 )
 
+alias(
+    name = "nodejs_install",
+    actual = "//tools/nodejs:install",
+)
+
 test_suite(
     name = "npm_audit",
     tests = ["//tools/npm:audit"],

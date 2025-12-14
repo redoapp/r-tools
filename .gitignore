@@ -9,7 +9,6 @@
 .vscode/*
 .idea
 .yarn
-dist
 bundle
 node_modules
 sw.js
