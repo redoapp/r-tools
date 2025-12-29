@@ -1,6 +1,6 @@
 load("@bazel_skylib//lib:shell.bzl", "shell")
 load("@bazel_skylib//rules:common_settings.bzl", "BuildSettingInfo")
-load("@rules_file//util:path.bzl", "runfile_path")
+load("@bazel_util//util:path.bzl", "runfile_path")
 load(":transitions.bzl", "artifact_mode_transition", "artifact_transition")
 
 def _artifact_target_impl(ctx):

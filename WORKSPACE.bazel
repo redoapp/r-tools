@@ -2,17 +2,6 @@ workspace(name = "r_tools")
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
 
-# Bazelisk
-
-BAZELISK_VERSION = "1.22.0"
-
-http_file(
-    name = "bazelisk_amd64_deb",
-    downloaded_file_path = "bazelisk-amd64.deb",
-    sha256 = "f3a9dd15b08f3f1350f2b2055cfee8a9c412c2050966f635633aaf30dd7e979e",
-    url = "https://github.com/bazelbuild/bazelisk/releases/download/v%s/bazelisk-amd64.deb" % BAZELISK_VERSION,
-)
-
 # Skylib
 
 SKYLIB_VERSION = "1.5.0"
@@ -42,11 +31,11 @@ aspect_bazel_lib_register_toolchains()
 
 # Rules Shell Extra
 
-RULES_SHELL_EXTRA_VERSION = "c3881c8b306583ddc35b8ce3272060574ca813ec"
+RULES_SHELL_EXTRA_VERSION = "4aa81e57a030f47a9b4e8fec84ae7ca917d368fd"
 
 http_archive(
     name = "rules_shell_extra",
-    sha256 = "d021702eeee687df2af6fc246781cf68414d061e5b562231c59de587d541cd94",
+    sha256 = "9e52176e9f9741da37c62bfd62b5f285eb4bcc72a2600773cd735040f4e8a048",
     strip_prefix = "rules_shell_extra-%s" % RULES_SHELL_EXTRA_VERSION,
     url = "https://github.com/redoapp/rules_shell_extra/archive/%s.tar.gz" % RULES_SHELL_EXTRA_VERSION,
 )
@@ -77,30 +66,36 @@ python_register_toolchains(
     python_version = "3.11",
 )
 
-# Rules File
+# Bazel Util
 
-RULES_FILE_VERSION = "91265992ffbdc44748763bb765b88b98d466b3fa"
+BAZEL_UTIL_VERSION = "6176db569992c21938caf01eb96343ce9fbd5e28"
 
 http_archive(
-    name = "rules_file",
-    sha256 = "12680251fb30918524a9a951d4b62f26009e1d4dc27e83f136512e684dfc1f2c",
-    strip_prefix = "rules_file-%s" % RULES_FILE_VERSION,
-    url = "https://github.com/redoapp/rules_file/archive/%s.zip" % RULES_FILE_VERSION,
+    name = "bazel_util",
+    sha256 = "c02c6017d16f7fd244a18cda307c882e2282efa7eb75a64d1ecb48bb80903a1d",
+    strip_prefix = "bazel-util-%s" % BAZEL_UTIL_VERSION,
+    url = "https://github.com/redoapp/bazel-util/archive/%s.tar.gz" % BAZEL_UTIL_VERSION,
 )
 
-load("@rules_file//rules:init.bzl", "file_init")
+load("@bazel_util//rules:init.bzl", "file_init")
 
 file_init()
 
-load("@rules_file//rules:workspace.bzl", "file_repositories")
+load("@bazel_util//rules:workspace.bzl", "file_repositories")
 
 file_repositories()
 
-load("@rules_file//buildifier:workspace.bzl", "buildifier_repositories", "buildifier_toolchains")
+load("@bazel_util//buildifier:workspace.bzl", "buildifier_repositories", "buildifier_toolchains")
 
 buildifier_repositories()
 
 buildifier_toolchains()
+
+load("@bazel_util//ibazel:workspace.bzl", "ibazel_repositories", "ibazel_toolchains")
+
+ibazel_repositories()
+
+ibazel_toolchains()
 
 # Rules pkg
 
@@ -112,50 +107,20 @@ http_archive(
     url = "https://github.com/bazelbuild/rules_pkg/releases/download/%s/rules_pkg-%s.tar.gz" % (RULES_PKG_VERSION, RULES_PKG_VERSION),
 )
 
-# Rules Debian Extra
-
-RULES_DEBIAN_EXTRA_VERSION = "7561056b1173c1bc93e1c2e2a8bc5d14763ab94c"
-
-http_archive(
-    name = "rules_debian_extra",
-    sha256 = "13dc52a89a9ef8ca53f30d6cf710b934d4f17dcde4cd80557123a543f0aae936",
-    strip_prefix = "rules_debian_extra-%s" % RULES_DEBIAN_EXTRA_VERSION,
-    url = "https://github.com/redoapp/rules_debian_extra/archive/%s.tar.gz" % RULES_DEBIAN_EXTRA_VERSION,
-)
-
 # Rules Javascript
 
-RULES_JAVASCRIPT_VERSION = "d1989ea35a6e63962b1b72b98d1170e73660d6bb"
+RULES_JAVASCRIPT_VERSION = "f8b54679df0da06115b9d338585018476d2ca0a1"
 
 http_archive(
     name = "better_rules_javascript",
-    sha256 = "a9fc20f2e7c2b339162f39691aacee483b8710ca1c0ae99ee5fcca6db35d3c8a",
+    sha256 = "b6623d4663b6777797cb6e23c7a9e8c06ec7649deca97d26b6b03144ea79ae5a",
     strip_prefix = "rules_javascript-%s" % RULES_JAVASCRIPT_VERSION,
     url = "https://github.com/redoapp/rules_javascript/archive/%s.tar.gz" % RULES_JAVASCRIPT_VERSION,
 )
 
 load("@better_rules_javascript//rules:workspace.bzl", javascript_repositories = "repositories")
 
-javascript_repositories(
-    version = "20.15.1",
-)
-
-# Rivet Bazel Util
-
-RIVET_BAZEL_UTIL_VERSION = "068ebb2fe6400516f761b729f6061e966c582abd"
-
-http_archive(
-    name = "rivet_bazel_util",
-    sha256 = "446661ae8fde977fe6aebf0a145acf1962cd096be272c1ec7e79e57ccc0ec162",
-    strip_prefix = "rivet-bazel-util-%s" % RIVET_BAZEL_UTIL_VERSION,
-    url = "https://github.com/redoapp/rivet-bazel-util/archive/%s.tar.gz" % RIVET_BAZEL_UTIL_VERSION,
-)
-
-load("@rivet_bazel_util//ibazel:workspace.bzl", "ibazel_repositories", "ibazel_toolchains")
-
-ibazel_repositories()
-
-ibazel_toolchains()
+javascript_repositories()
 
 # R Tools
 

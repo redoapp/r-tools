@@ -1,5 +1,5 @@
+load("@bazel_util//util:rules.bzl", "digest")
 load("@better_rules_javascript//nodejs:rules.bzl", "nodejs_binary_package")
-load("@rivet_bazel_util//util:rules.bzl", "digest")
 load("@rules_pkg//pkg:mappings.bzl", "pkg_mklink")
 load("@rules_pkg//pkg:zip.bzl", "pkg_zip")
 

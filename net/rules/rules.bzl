@@ -1,5 +1,5 @@
 load("@bazel_skylib//lib:shell.bzl", "shell")
-load("@rules_file//util:path.bzl", "runfile_path")
+load("@bazel_util//util:path.bzl", "runfile_path")
 
 def _sock_activate_impl(ctx):
     actions = ctx.actions

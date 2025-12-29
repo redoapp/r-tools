@@ -1,8 +1,8 @@
+load("@bazel_util//generate:rules.bzl", "generate")
 load("@better_rules_javascript//commonjs:rules.bzl", "cjs_root")
 load("@better_rules_javascript//javascript:rules.bzl", "js_library")
 load("@better_rules_javascript//rollup:rules.bzl", "configure_rollup", "rollup_bundle")
 load("@better_rules_javascript//typescript:rules.bzl", "ts_library")
-load("@rules_file//generate:rules.bzl", "generate")
 load("//rules/javascript:rules.bzl", "js_gen")
 
 package(default_visibility = ["//visibility:public"])

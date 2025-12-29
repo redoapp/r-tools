@@ -1,5 +1,5 @@
 load("@aspect_bazel_lib//lib:glob_match.bzl", "glob_match")
-load("@rules_file//util:path.bzl", "runfile_path")
+load("@bazel_util//util:path.bzl", "runfile_path")
 load("@rules_pkg//pkg:providers.bzl", "PackageDirsInfo", "PackageFilegroupInfo", "PackageFilesInfo", "PackageSymlinkInfo")
 
 def _runfiles_symlinks(workspace_name, runfiles):

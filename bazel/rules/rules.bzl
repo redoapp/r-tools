@@ -1,8 +1,8 @@
 load("@bazel_skylib//lib:shell.bzl", "shell")
 load("@bazel_skylib//rules:common_settings.bzl", "BuildSettingInfo")
-load("@rivet_bazel_util//bazel:aspects.bzl", "digest")
-load("@rivet_bazel_util//bazel:providers.bzl", "create_digest")
-load("@rules_file//util:path.bzl", "runfile_path")
+load("@bazel_util//bazel:aspects.bzl", "digest")
+load("@bazel_util//bazel:providers.bzl", "create_digest")
+load("@bazel_util//util:path.bzl", "runfile_path")
 load(":transitions.bzl", "mode_transition")
 
 def _build_setting_file_impl(ctx):
@@ -243,7 +243,7 @@ pre_run = rule(
         ),
         "_hash": attr.label(
             cfg = "exec",
-            default = "@rivet_bazel_util//util/hash:bin",
+            default = "@bazel_util//util/hash:bin",
             executable = True,
         ),
         "_pre_run": attr.label(
