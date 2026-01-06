@@ -1,6 +1,7 @@
 from argparse import ArgumentTypeError
 from collections import namedtuple
 from dataclasses import dataclass
+from os.path import expandvars
 from socket import (
     AF_INET,
     AF_INET,
@@ -21,6 +22,7 @@ class SockAddr:
 
 
 def sock_addr_arg(str):
+    str = expandvars(str)
     protocol, addr = str.split(":", 1)
     protocol = protocol.lower()
     if protocol == "udp":
