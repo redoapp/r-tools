@@ -1,8 +1,0 @@
-package(default_visibility = ["//visibility:public"])
-
-genrule(
-    name = "file",
-    srcs = [":file.gz"],
-    outs = ["file.out"],
-    cmd = "< $< gunzip > $@",
-)

@@ -68,11 +68,11 @@ python_register_toolchains(
 
 # Bazel Util
 
-BAZEL_UTIL_VERSION = "6176db569992c21938caf01eb96343ce9fbd5e28"
+BAZEL_UTIL_VERSION = "a96e746ac898ab089185bb577287cdd6955724f1"
 
 http_archive(
     name = "bazel_util",
-    sha256 = "c02c6017d16f7fd244a18cda307c882e2282efa7eb75a64d1ecb48bb80903a1d",
+    sha256 = "cf766842a4ad457d9387ec0c3a30c5becdad578c5215c0b94d4ebbf2df6c285a",
     strip_prefix = "bazel-util-%s" % BAZEL_UTIL_VERSION,
     url = "https://github.com/redoapp/bazel-util/archive/%s.tar.gz" % BAZEL_UTIL_VERSION,
 )

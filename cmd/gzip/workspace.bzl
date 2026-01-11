@@ -1,4 +1,4 @@
-load("//bazel/rules:workspace.bzl", "path_executable")
+load("@bazel_util//exec:workspace.bzl", "path_executable")
 
 def gzip_repositories():
     path_executable(
