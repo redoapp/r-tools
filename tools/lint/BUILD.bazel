@@ -10,13 +10,6 @@ format(
 )
 
 format(
-    name = "black_lint",
-    srcs = ["@files//:black_files"],
-    formatter = "//tools/black",
-    strip_prefix = "/files",
-)
-
-format(
     name = "prettier_lint",
     srcs = ["@files//:prettier_files"],
     formatter = "//tools/prettier",
@@ -27,7 +20,6 @@ multi_generate(
     name = "lint",
     deps = [
         ":bazel_lint",
-        ":black_lint",
         ":prettier_lint",
         ":shfmt_exec_lint",
         ":shfmt_lint",

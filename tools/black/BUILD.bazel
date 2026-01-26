@@ -1,8 +1,0 @@
-load("@bazel_util//black:rules.bzl", "configure_black")
-
-package(default_visibility = ["//visibility:public"])
-
-configure_black(
-    name = "black",
-    options = ["-C"],
-)

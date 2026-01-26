@@ -6,11 +6,6 @@ filegroup(
 )
 
 filegroup(
-    name = "black_files",
-    srcs = glob(["files/**/*.py"]),
-)
-
-filegroup(
     name = "prettier_files",
     srcs = glob(
         [
