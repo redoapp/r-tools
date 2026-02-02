@@ -1,20 +1,13 @@
-load("@bazel_util//file:rules.bzl", "bazelrc_deleted_packages")
 load("@rules_shell_extra//shell:rules.bzl", "sh_binary")
 
 package(default_visibility = ["//visibility:public"])
 
-bazelrc_deleted_packages(
-    name = "bazelrc",
-    output = "deleted.bazelrc",
-    packages = ["@files//:packages"],
-)
-
 sh_binary(
     name = "refresh",
     data = [
-        ":bazelrc",
         "//github/workflow-inputs:gen",
         "//tools/nodejs:roots",
+        "@files//packages:bazelrc",
     ],
     main = "refresh.sh",
 )

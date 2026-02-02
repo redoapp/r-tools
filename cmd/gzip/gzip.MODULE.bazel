@@ -1,0 +1,11 @@
+gzip = use_extension("//cmd/gzip:extensions.bzl", "gzip")
+use_repo(
+    gzip,
+    "host_gzip",
+    "host_pigz",
+)
+
+register_toolchains(
+    "//cmd/gzip:pigz_toolchain",
+    "//cmd/gzip:gzip_toolchain",
+)

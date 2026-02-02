@@ -1,6 +1,6 @@
 load("@bazel_util//exec:workspace.bzl", "path_executable")
 
-def gzip_repositories():
+def _gzip_impl(module_ctx):
     path_executable(
         name = "host_gzip",
         executable = "gzip",
@@ -11,8 +11,10 @@ def gzip_repositories():
         executable = "pigz",
     )
 
-def gzip_toolchains():
-    native.register_toolchains(
-        str(Label(":pigz_toolchain")),
-        str(Label(":gzip_toolchain")),
+    return module_ctx.extension_metadata(
+        reproducible = True,
     )
+
+gzip = module_extension(
+    implementation = _gzip_impl,
+)

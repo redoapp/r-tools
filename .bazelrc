@@ -4,7 +4,7 @@ startup --host_jvm_args=-Xmx2560m
 startup --windows_enable_symlinks
 
 # Files
-import %workspace%/tools/bazel/deleted.bazelrc
+import %workspace%/tools/file/files.bazelrc
 
 # Config
 common --enable_platform_specific_config
@@ -14,7 +14,6 @@ common:ci --show_progress_rate_limit=3
 
 # Bzlmod
 common --enable_workspace
-common --noenable_bzlmod
 
 # Tags
 common --incompatible_allow_tags_propagation
@@ -53,8 +52,7 @@ build --reuse_sandbox_directories
 build --nosandbox_default_allow_network
 
 # Run
-# https://github.com/bazelbuild/bazel/issues/3325
-build --run_under=//tools/run:bin
+run --run_in_cwd
 
 # Test
 test --build_tests_only

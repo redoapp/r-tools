@@ -16,6 +16,7 @@
 
 apt.lock.json linguist-generated
 Cargo.bazel.lock linguist-generated
+MODULE.bazel.lock linguist-generated
 npm.bzl linguist-generated
 openapi.* linguist-vendored
 shipbob-api.d.ts linguist-generated
@@ -24,7 +25,7 @@ yarn.lock linguist-generated
 /redo/model/src/team-industry-category/team-industry-category.ts linguist-generated
 /redo/shop-mini/src/redotech/**/* linguist-generated
 /redotech/live/lib/employees.csv linguist-vendored
-/tools/bazel_/deleted.bazelrc linguist-generated
+/tools/file/files.bazelrc linguist-generated
 /tools/nodejs/roots.bzl linguist-generated
 /tools/test/e2e_tests.bzl linguist-generated
 /tools/test/external_tests.bzl linguist-generated
