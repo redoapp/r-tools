@@ -4,13 +4,13 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 # Rules Javascript
 
-RULES_JAVASCRIPT_VERSION = "f8b54679df0da06115b9d338585018476d2ca0a1"
+JAVASCRIPT_VERSION = "6a121489e87c8b1935b1cce2ec094a1a336f7196"
 
 http_archive(
     name = "better_rules_javascript",
-    sha256 = "b6623d4663b6777797cb6e23c7a9e8c06ec7649deca97d26b6b03144ea79ae5a",
-    strip_prefix = "rules_javascript-%s" % RULES_JAVASCRIPT_VERSION,
-    url = "https://github.com/redoapp/rules_javascript/archive/%s.tar.gz" % RULES_JAVASCRIPT_VERSION,
+    sha256 = "4730ba4273195bc4d5f626b3d3906e8e38ed2ecf5bcb7a318e014504fef20f93",
+    strip_prefix = "rules_javascript-%s" % JAVASCRIPT_VERSION,
+    url = "https://github.com/redoapp/rules_javascript/archive/%s.tar.gz" % JAVASCRIPT_VERSION,
 )
 
 load("@better_rules_javascript//rules:workspace.bzl", javascript_repositories = "repositories")
