@@ -25,13 +25,30 @@ include("//cmd/gzip:gzip.MODULE.bazel")
 
 include("//tools/file:file.MODULE.bazel")
 
+# Javascript
+
+bazel_dep(name = "rules_javascript")
+
+RULES_JAVASCRIPT_VERSION = "dc853d3b5ca1bcfab6e51573e1beb8587676323c"
+
+archive_override(
+    module_name = "rules_javascript",
+    sha256 = "42147b63025b43c2cbb474b00e0cc8ebbd16600638f88a7416ea4828c972350e",
+    strip_prefix = "rules_javascript-%s" % RULES_JAVASCRIPT_VERSION,
+    url = "https://github.com/redoapp/rules_javascript/archive/%s.tar.gz" % RULES_JAVASCRIPT_VERSION,
+)
+
+# NPM
+
+include("//tools/npm:npm.MODULE.bazel")
+
 # Pkg
 
-bazel_dep(name = "rules_pkg", version = "1.0.1")
+bazel_dep(name = "rules_pkg", version = "1.2.0")
 
 # Skylib
 
-bazel_dep(name = "bazel_skylib", version = "1.7.1")
+bazel_dep(name = "bazel_skylib", version = "1.9.0")
 
 # Shell
 

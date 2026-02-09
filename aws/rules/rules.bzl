@@ -1,16 +1,16 @@
 load("@bazel_util//util:rules.bzl", "digest")
-load("@better_rules_javascript//nodejs:rules.bzl", "nodejs_binary_package")
+load("@rules_javascript//nodejs:rules.bzl", "nodejs_binary_package")
 load("@rules_pkg//pkg:mappings.bzl", "pkg_mklink")
 load("@rules_pkg//pkg:zip.bzl", "pkg_zip")
 
 def _cf_transition_impl(settings, attrs):
-    return {"@better_rules_javascript//javascript:source_map": False}
+    return {"@rules_javascript//javascript:source_map": False}
 
 _cf_transition = transition(
     implementation = _cf_transition_impl,
     inputs = [],
-    # TODO: @better_rules_javascript//javascript:language
-    outputs = ["@better_rules_javascript//javascript:source_map"],
+    # TODO: @rules_javascript//javascript:language
+    outputs = ["@rules_javascript//javascript:source_map"],
 )
 
 def _cf_function_impl(ctx):
@@ -42,7 +42,7 @@ def _lambda_nodejs_transition_impl(settings, attrs):
         "//command_line_option:platforms": "//aws/rules:lambda",
     }
 
-# Could exclude AWS libraries with @better_rules_javascript//javascript:system_lib
+# Could exclude AWS libraries with @rules_javascript//javascript:system_lib
 # But the versioning lags many months behind.
 _lambda_nodejs_transition = transition(
     implementation = _lambda_nodejs_transition_impl,
@@ -84,7 +84,7 @@ def lambda_nodejs_function(name, dep, **kwargs):
         name = "%s.pkg" % name,
         dep = dep,
         main = "_",
-        node = "@better_rules_javascript//nodejs/default:system_nodejs",
+        node = "@rules_javascript//nodejs/default:system_nodejs",
         **kwargs
     )
 

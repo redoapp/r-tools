@@ -12,9 +12,6 @@ common --enable_platform_specific_config
 # Console
 common:ci --show_progress_rate_limit=3
 
-# Bzlmod
-common --enable_workspace
-
 # Tags
 common --incompatible_allow_tags_propagation
 

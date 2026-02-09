@@ -2,6 +2,7 @@
 *.graphql linguist-generated
 *.graphql.* linguist-generated
 *.jpg linguist-vendored
+*.lock linguist-generated
 *.mp4 linguist-vendored
 *.otf linguist-vendored
 *.pdf linguist-vendored
@@ -17,10 +18,9 @@
 apt.lock.json linguist-generated
 Cargo.bazel.lock linguist-generated
 MODULE.bazel.lock linguist-generated
-npm.bzl linguist-generated
+npm.json linguist-generated
 openapi.* linguist-vendored
 shipbob-api.d.ts linguist-generated
-yarn.lock linguist-generated
 
 /redo/model/src/team-industry-category/team-industry-category.ts linguist-generated
 /redo/shop-mini/src/redotech/**/* linguist-generated
