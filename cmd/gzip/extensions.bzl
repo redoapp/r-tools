@@ -1,4 +1,4 @@
-load("@bazel_util//exec:workspace.bzl", "path_executable")
+load("@bazel_util//exec:repositories.bzl", "path_executable")
 
 def _gzip_impl(module_ctx):
     path_executable(

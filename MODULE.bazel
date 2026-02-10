@@ -8,11 +8,11 @@ bazel_dep(name = "aspect_bazel_lib", version = "2.8.1")
 
 bazel_dep(name = "bazel_util")
 
-BAZEL_UTIL_VERSION = "7691525d0f7da7ae27ceb47ab7bf061251363fe4"
+BAZEL_UTIL_VERSION = "055bbfa5da650d49108a0520a232fe8ae9c2fde4"
 
 archive_override(
     module_name = "bazel_util",
-    sha256 = "d28ec8c5dfd84e55f58f6309f8ac5583ff8a5976bdd1fc6b20d88878e344e57f",
+    sha256 = "113273c224625e7289bc23b20ea0e2ce982033111b95af21ed745504dafc17d5",
     strip_prefix = "bazel-util-%s" % BAZEL_UTIL_VERSION,
     url = "https://github.com/redoapp/bazel-util/archive/%s.tar.gz" % BAZEL_UTIL_VERSION,
 )
