@@ -84,7 +84,7 @@ def lambda_nodejs_function(name, dep, **kwargs):
         name = "%s.pkg" % name,
         dep = dep,
         main = "_",
-        node = "@rules_javascript//nodejs/default:system_nodejs",
+        node = "@rules_javascript//nodejs:system_nodejs",
         **kwargs
     )
 
