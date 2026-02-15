@@ -1,7 +1,7 @@
 load("@bazel_util//query:rules.bzl", "query_bzl")
+load("@npm//:roots.bzl", NPM_ROOTS = "ROOTS")
 load("@rules_javascript//nodejs:rules.bzl", "nodejs_install", "nodejs_modules_package")
 load("@rules_javascript//typescript:rules.bzl", "js_import_ts")
-load("@npm//:roots.bzl", NPM_ROOTS = "ROOTS")
 load(":roots.bzl", ROOTS = "TARGETS")
 
 package(default_visibility = ["//visibility:public"])
