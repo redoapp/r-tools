@@ -1,18 +1,14 @@
 module(name = "r_tools")
 
-# Aspect Bazel Lib
-
-bazel_dep(name = "aspect_bazel_lib", version = "2.8.1")
-
 # Bazel Util
 
 bazel_dep(name = "bazel_util")
 
-BAZEL_UTIL_VERSION = "055bbfa5da650d49108a0520a232fe8ae9c2fde4"
+BAZEL_UTIL_VERSION = "6b04cafa73358bbd8169f47483ff318f2bd92a8e"
 
 archive_override(
     module_name = "bazel_util",
-    sha256 = "113273c224625e7289bc23b20ea0e2ce982033111b95af21ed745504dafc17d5",
+    sha256 = "35221e3060045b73857c06b9698a878ee79b406d294b1e7bfa51aa88727cf313",
     strip_prefix = "bazel-util-%s" % BAZEL_UTIL_VERSION,
     url = "https://github.com/redoapp/bazel-util/archive/%s.tar.gz" % BAZEL_UTIL_VERSION,
 )
