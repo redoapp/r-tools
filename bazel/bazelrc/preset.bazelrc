@@ -2,6 +2,7 @@
 
 ## Build
 build --norun_validations
+build --trim_test_configuration
 
 # Bzlmod
 common --check_direct_dependencies error
