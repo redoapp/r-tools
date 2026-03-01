@@ -25,6 +25,8 @@ shipbob-api.d.ts linguist-generated
 /redo/model/src/team-industry-category/team-industry-category.ts linguist-generated
 /redo/shop-mini/src/redotech/**/* linguist-generated
 /redotech/live/lib/employees.csv linguist-vendored
+/tools/bazel_/bazelrc/ linguist-vendored
+/tools/bazel_/preset.bazelrc linguist-generated
 /tools/file/files.bazelrc linguist-generated
 /tools/nodejs/roots.bzl linguist-generated
 /tools/test/e2e_tests.bzl linguist-generated
