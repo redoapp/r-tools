@@ -202,6 +202,21 @@
   },
   "selectedYankedVersions": {},
   "moduleExtensions": {
+    "@@bazel_util+//git:extensions.bzl%git": {
+      "general": {
+        "bzlTransitiveDigest": "84qEatWHrOgW+/gDUlC0Erqg30U95FGN/3YHCj7gTYw=",
+        "usagesDigest": "1sjxk/M0qqbjHvWwA4kkwZDs5DmKu2fq21SdtNS4P58=",
+        "recordedInputs": [],
+        "generatedRepoSpecs": {
+          "git_changed_files": {
+            "repoRuleId": "@@bazel_util+//git:repositories.bzl%git_changed_files",
+            "attributes": {
+              "root_file": "@@//:MODULE.bazel"
+            }
+          }
+        }
+      }
+    },
     "@@rules_kotlin+//src/main/starlark/core/repositories:bzlmod_setup.bzl%rules_kotlin_extensions": {
       "general": {
         "bzlTransitiveDigest": "ABI1D/sbS1ovwaW/kHDoj8nnXjQ0oKU9fzmzEG4iT8o=",
