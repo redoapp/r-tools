@@ -1,5 +1,6 @@
 .aws-credential-expiry.txt
 .bazel-npm-cache.json
+.bazelrc.user
 .cdktf
 .DS_Store
 .env

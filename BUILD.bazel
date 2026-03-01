@@ -9,6 +9,11 @@ exports_files([
 ])
 
 alias(
+    name = "bazelrc",
+    actual = "//tools/bazel_:preset_gen",
+)
+
+alias(
     name = "lint",
     actual = "//tools/lint",
 )
@@ -30,7 +35,7 @@ alias(
 
 alias(
     name = "refresh",
-    actual = "//tools/bazel:refresh",
+    actual = "//tools/bazel_:refresh",
 )
 
 cjs_root(

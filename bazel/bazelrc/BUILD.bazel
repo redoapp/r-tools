@@ -1,0 +1,17 @@
+load("@bazel_util//bazelrc:rules.bzl", "bazelrc_group")
+
+package(default_visibility = ["//visibility:public"])
+
+bazelrc_group(
+    name = "preset",
+    srcs = ["preset.bazelrc"],
+    deps = [
+        "@bazel_util//bazelrc:preset",
+        "@bazel_util//file:bazelrc",
+    ],
+)
+
+bazelrc_group(
+    name = "protobuf",
+    srcs = ["protobuf.bazelrc"],
+)

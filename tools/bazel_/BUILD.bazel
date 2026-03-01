@@ -1,6 +1,15 @@
 load("@rules_shell_extra//shell:rules.bzl", "sh_binary")
+load("@bazel_util//bazelrc:rules.bzl", "bazelrc_gen")
 
 package(default_visibility = ["//visibility:public"])
+
+bazelrc_gen(
+    name = "preset_gen",
+    path = "preset",
+    deps = [
+        "//bazel/bazelrc:preset",
+    ],
+)
 
 sh_binary(
     name = "refresh",

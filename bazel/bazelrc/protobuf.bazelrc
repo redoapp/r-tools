@@ -1,0 +1,4 @@
+# Rule sets
+
+## Protobuf
+build --@protobuf//bazel/toolchains:prefer_prebuilt_protoc
