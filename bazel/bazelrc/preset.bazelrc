@@ -12,6 +12,9 @@ common --experimental_disk_cache_gc_max_size=50G
 # for backwards compatibility
 common:macos --disk_cache ~/.cache/bazel-disk
 
+## File
+common --watchfs
+
 # Configs
 
 ## Release
