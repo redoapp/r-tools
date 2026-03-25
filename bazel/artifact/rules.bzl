@@ -1,7 +1,7 @@
 load("@bazel_skylib//lib:shell.bzl", "shell")
 load("@bazel_skylib//rules:common_settings.bzl", "BuildSettingInfo")
 load("@bazel_util//util:path.bzl", "runfile_path")
-load(":transitions.bzl", "artifact_mode_transition", "artifact_transition")
+load(":transitions.bzl", "artifact_mode_transition")
 
 def _artifact_target_impl(ctx):
     actions = ctx.actions
@@ -66,10 +66,7 @@ def _s3_upload_impl(ctx):
 
 s3_upload = rule(
     attrs = {
-        "file": attr.label(allow_single_file = True, cfg = artifact_transition, doc = "Directory to upload", mandatory = True),
-        "_allowlist_function_transition": attr.label(
-            default = "@bazel_tools//tools/allowlists/function_transition_allowlist",
-        ),
+        "file": attr.label(allow_single_file = True, doc = "Directory to upload", mandatory = True),
         "_bash_runfiles": attr.label(
             default = "@bazel_tools//tools/bash/runfiles",
         ),
