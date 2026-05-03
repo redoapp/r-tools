@@ -1,6 +1,6 @@
+load("@bazel_lib//lib:paths.bzl", "to_rlocation_path")
 load("@bazel_skylib//lib:shell.bzl", "shell")
 load("@bazel_skylib//rules:common_settings.bzl", "BuildSettingInfo")
-load("@bazel_util//util:path.bzl", "runfile_path")
 load(":transitions.bzl", "artifact_mode_transition", "artifact_transition")
 
 def _artifact_target_impl(ctx):
@@ -46,14 +46,13 @@ def _s3_upload_impl(ctx):
     file = ctx.file.file
     name = ctx.attr.name
     runner = ctx.file._runner
-    workspace = ctx.workspace_name
 
     executable = actions.declare_file(name)
     actions.expand_template(
         is_executable = True,
         output = executable,
         substitutions = {
-            "%{file}": shell.quote(runfile_path(workspace, file)),
+            "%{file}": shell.quote(to_rlocation_path(ctx, file)),
         },
         template = runner,
     )
