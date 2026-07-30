@@ -1,3 +1,4 @@
+load("@rules_python//python:py_binary.bzl", "py_binary")
 load("@rules_shell_extra//shell:rules.bzl", "sh_binary")
 
 package(default_visibility = ["//visibility:public"])
@@ -13,14 +14,8 @@ sh_binary(
     main = "lines.sh",
 )
 
-sh_binary(
-    name = "refs_cleanup",
-    data = [":files"],
-    main = "refs-cleanup.sh",
-)
-
-sh_binary(
-    name = "refs_remote_cleanup",
-    data = [":files"],
-    main = "refs-remote-cleanup.sh",
+py_binary(
+    name = "branches_cleanup",
+    srcs = ["branches-cleanup.py"],
+    main = "branches-cleanup.py",
 )
