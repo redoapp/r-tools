@@ -51,6 +51,10 @@ bazel_dep(name = "rules_pkg", version = "1.2.0")
 
 bazel_dep(name = "platforms", version = "1.0.0")
 
+# Python
+
+bazel_dep(name = "rules_python", version = "2.2.0")
+
 # Skylib
 
 bazel_dep(name = "bazel_skylib", version = "1.9.0")

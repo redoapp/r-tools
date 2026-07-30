@@ -11,11 +11,6 @@ alias(
 )
 
 alias(
-    name = "refs_cleanup",
-    actual = "//git:refs_cleanup",
-)
-
-alias(
-    name = "refs_remote_cleanup",
-    actual = "//git:refs_remote_cleanup",
+    name = "branches_cleanup",
+    actual = "//git:branches_cleanup",
 )
